@@ -16,8 +16,6 @@ export const MicroUIComponent = props => {
     // Pass in our container ref, the name of the exported micro UI component we want to render and the props for that component
     render(ref, name, props);
   }
-
-  console.log('RAH RRAHHHH');
   // Return out a div to embed within
   // @TODO make this able to be passed in
   return <div ref={setRef} />;

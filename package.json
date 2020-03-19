@@ -1,14 +1,25 @@
 {
-  "name": "react-micro-ui-hooks",
+  "name": "@sackrin/react-micro-ui-hooks",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "React components and hooks to mount micro UI services",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sackrin/react-micro-ui-hooks.git"
+  },
   "scripts": {
     "start": "npx nps"
   },
+  "files": [
+    "lib"
+  ],
   "author": "Hilary Osborne",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
     "@babel/node": "^7.8.7",
@@ -18,24 +29,10 @@
     "@babel/plugin-transform-spread": "^7.8.3",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
-    "@loadable/component": "^5.12.0",
     "babel-plugin-module-resolver": "^3.2.0",
-    "compression": "^1.7.4",
-    "core-js": "^3.6.4",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "helmet": "^3.21.3",
-    "lodash": "^4.17.15",
+    "prettier": "^1.19.1",
     "nodemon": "^2.0.2",
     "nps-utils": "^1.7.0",
-    "prettier": "^1.19.1",
-    "regenerator-runtime": "^0.13.5"
-  },
-  "peerDependencies": {
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0"
-  },
-  "devDependencies": {
     "babel-loader": "^8.0.6",
     "react-dev-utils": "^9.1.0"
   }
