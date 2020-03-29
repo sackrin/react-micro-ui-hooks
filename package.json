@@ -1,6 +1,6 @@
 {
   "name": "@sackrin/react-micro-ui-hooks",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "React components and hooks to mount micro UI services",
   "main": "lib/index.js",
   "repository": {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useMicroUI } from '../Hooks';
+import { getMicroUiEnv } from '../Helpers';
 
 export const MicroUIComponent = props => {
   // Deconstruct the micro UI component values
@@ -13,8 +14,10 @@ export const MicroUIComponent = props => {
   const [render, loaded] = useMicroUI(url, library);
   // Once we have a ref and the micro ui reports as loaded then proceed to load in our component
   if (ref && loaded) {
+    // Retrieve the current env setting for this micro UI
+    const env = getMicroUiEnv(library);
     // Pass in our container ref, the name of the exported micro UI component we want to render and the props for that component
-    render(ref, name, props);
+    render(ref, name, { ...props, env });
   }
   // Return out a div to embed within
   // @TODO make this able to be passed in
