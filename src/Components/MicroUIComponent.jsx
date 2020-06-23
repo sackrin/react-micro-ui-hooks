@@ -6,6 +6,7 @@ export const MicroUIComponent = props => {
   // Deconstruct the micro UI component values
   const {
     microUi: { url, library, name },
+    ..._props
   } = props;
   // We need to have a ref, this will be the component the micro UI's internal reactDomRender will render into
   const [ref, setRef] = useState(null);
@@ -21,7 +22,7 @@ export const MicroUIComponent = props => {
   }
   // Return out a div to embed within
   // @TODO make this able to be passed in
-  return <div ref={setRef} />;
+  return <div ref={setRef} {..._props} />;
 };
 
 export default MicroUIComponent;
