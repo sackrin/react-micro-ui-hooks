@@ -2,8 +2,7 @@
 .idea
 
 # production
-.express
-.microui
+/lib
 
 # dependencies
 /node_modules
