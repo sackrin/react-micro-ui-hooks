@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, SetStateAction } from 'react';
 import getMicroUIWindowName from '../Helpers/getMicroUIWindowName';
 import getMicroUIWindowState from '../Helpers/getMicroUIWindowState';
 
-function useMicroUIState(defaultState, path, prefix = 'MICROUI') {
+type UseMicroUIState = <S>(defaultState: S, path: string, prefix?: string) => [S, React.Dispatch<SetStateAction<S>>];
+
+const useMicroUIState: UseMicroUIState = (defaultState, path, prefix = 'MICROUI') => {
   const [state, setState] = useState(defaultState);
   const windowName = getMicroUIWindowName('STATE', path, prefix);
   const windowStash = window[windowName] || getMicroUIWindowState(state, windowName);

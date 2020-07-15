@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useMicroUI } from '../Hooks';
 import { getMicroUiEnv } from '../Helpers';
 
-export const MicroUIComponent = props => {
+import type { MicroUIProps } from "./Types/MicroUIProps";
+
+export const MicroUIComponent = (props: MicroUIProps) => {
   // Deconstruct the micro UI component values
   const {
     microUi: { url, library, name },
