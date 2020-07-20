@@ -2,7 +2,14 @@ import { useCallback, useEffect, useState } from 'react';
 import getMicroUIWindowName from '../Helpers/getMicroUIWindowName';
 import getMicroUIWindowState from '../Helpers/getMicroUIWindowState';
 
-function useMicroUICallback(callback, deps, path, prefix = 'MICROUI') {
+type UseMicroUICallback = (
+  callback: (...args: any[]) => any,
+  deps: any,
+  path: string,
+  prefix?: string
+) => (...args: any[]) => any;
+
+const useMicroUICallback: UseMicroUICallback = (callback, deps, path, prefix = 'MICROUI') => {
   const _callback = useCallback(callback, deps);
   const [cb, setCb] = useState(() => _callback);
   const windowName = getMicroUIWindowName('CALLBACK', path, prefix);

@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
+import type { RenderComponent } from "./Types/RenderComponent";
 
 /*
   useMicroUI Hook
@@ -7,8 +8,16 @@ import { useState, useCallback, useEffect } from 'react';
   @param baseUrl = the url to the micro UI ie http://examplemicroui.com
   @param libraryName = the UMD library name
  */
-function useMicroUI(baseUrl, libraryName) {
-  const [libraryLoaded, setLibraryLoaded] = useState(0);
+type UseMicroUI = (baseUrl: string, libraryName: string) => [
+  null | RenderComponent,
+  boolean,
+  false | React.Dispatch<React.SetStateAction<boolean>>,
+  false | React.Dispatch<React.SetStateAction<boolean>>,
+  any
+];
+
+const useMicroUI: UseMicroUI = (baseUrl, libraryName) => {
+  const [libraryLoaded, setLibraryLoaded] = useState(false);
   const [bootstrapLoaded, setBootstrapLoaded] = useState(false);
   const [bootstrapError, setBootstrapError] = useState(false);
   // Checks if the micro UI script is present
@@ -34,7 +43,7 @@ function useMicroUI(baseUrl, libraryName) {
     }
   }, []);
   // Use the micro UI's exported render helper to render the actual component
-  const renderComponent = useCallback(
+  const renderComponent: RenderComponent = useCallback(
     (ref, name, props) => {
       if (window[libraryName] && window[libraryName].Render) {
         window[libraryName].Render(ref, name, props);

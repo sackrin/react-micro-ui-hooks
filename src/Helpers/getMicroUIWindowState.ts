@@ -1,6 +1,8 @@
 import { Subject } from 'rxjs';
 
-const getMicroUIWindowState = (defaultState, windowName) => {
+type GetMicroUIWindowState = (defaultState: any, windowName: string) => any;
+
+const getMicroUIWindowState: GetMicroUIWindowState = (defaultState, windowName) => {
   window[windowName] = new Subject();
   window[windowName].next(defaultState);
   return window[windowName];
